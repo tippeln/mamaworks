@@ -13,28 +13,28 @@
     <header id="top">
         <p>Mamasan & Companyが<br>
             クリエイティブ業界に進出します！</p>
+        <div class="container">
+            <h1><a href="index.html"><img src="images/logo.png" alt="Mamasan & Company"></a></h1>
+            <nav class="nav_bar">
+                <ul>
+                    <li id="nav_about"><a href="about.html">特徴</a></li>
+                    <li id="nav_guide"><a href="guide.html">コンセプト</a></li>
+                    <li id="nav_animals"><a href="animals.html">先輩たちの声</a></li>
+                    <li id="nav_contact"><a href="contact.html">会社概要</a></li>
+                    <li id="nav_contact"><a href="contact.html">問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <div class="headline">子育てしながら在宅ワークでスキルを活かし続けれれる！</div>
-    <div class="container">
-        <nav class="nav_bar">
-            <h1><a href="index.html"><img src="images/logo.png" alt="Mamasan & Company"></a></h1>
-            <ul>
-                <li id="nav_about"><a href="about.html">特徴</a></li>
-                <li id="nav_guide"><a href="guide.html">コンセプト</a></li>
-                <li id="nav_animals"><a href="animals.html">先輩たちの声</a></li>
-                <li id="nav_contact"><a href="contact.html">会社概要</a></li>
-                <li id="nav_contact"><a href="contact.html">問い合わせ</a></li>
-            </ul>
-        </nav>
-    </div>
     <section>
         <div class="container">
             <h2 class="title-border">Mamasan & Companyの特徴</h2>
-            <div class="area">
+            <div class="tab">
                 <input type="radio" name="tab_name" id="tab1" checked>
                 <label class="tab_class tab_col1" for="tab1">特徴１</label>
-                <div class="content_class">
-                    <ul class="topics">
+                <div class="tab_content">
+                    <ul class="tab_content__list">
                         <li>
                             <p>特徴１テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキストテキストテキストテキストテキストテキスト<br>
@@ -56,8 +56,8 @@
                 </div>
                 <input type="radio" name="tab_name" id="tab2">
                 <label class="tab_class tab_col2" for="tab2">特徴２</label>
-                <div class="content_class">
-                    <ul class="topics">
+                <div class="tab_content">
+                    <ul class="tab_content__list">
                         <li>
                             <p>特徴２テキストテキストテキステキストテキストテキストテキスト<br>
                                 テキストテキストテキストテキストテキストテキストテキスト<br>
@@ -79,8 +79,8 @@
                 </div>
                 <input type="radio" name="tab_name" id="tab3">
                 <label class="tab_class tab_col3" for="tab3">特徴３</label>
-                <div class="content_class">
-                    <ul class="topics">
+                <div class="tab_content">
+                    <ul class="tab_content__list">
                         <li>
                             <p>特徴３テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキストテキストテキストテキストテキストテキスト<br>
@@ -102,8 +102,8 @@
                 </div>
                 <input type="radio" name="tab_name" id="tab4">
                 <label class="tab_class tab_col4" for="tab4">特徴４</label>
-                <div class="content_class">
-                    <ul class="topics">
+                <div class="tab_content">
+                    <ul class="tab_content__list">
                         <li>
                             <p>特徴4テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキストテキストテキストテキストテキストテキスト<br>
@@ -129,19 +129,19 @@
     <section id="concept">
         <div class="container">
             <h2 class="title-border">コンセプト</h2>
-            <ul class="concept_list">
-                <li>
+            <ul class="concept_lists">
+                <li class="concept_list">
                     <p><img src="images/orange.jpg" alt="" class="orange" name="myBigImage"></p>
                 </li>
                 <li>
                     <ul>
-                        <li>
+                        <li class="concept_list">
                             <p><a href="javascript:void(0)" onmouseover="myChgPic( 'images/orange.jpg' )"><IMG src="images/orange.jpg" width="110" height="65"></a></p>
                         </li>
-                        <li>
+                        <li class="concept_list">
                             <p><a href="javascript:void(0)" onmouseover="myChgPic( 'images/blue.jpg' )"><IMG src="images/blue.jpg" width="110" height="65"></a></p>
                         </li>
-                        <li>
+                        <li class="concept_list">
                             <p><a href="javascript:void(0)" onmouseover="myChgPic( 'images/pink.jpg' )"><IMG src="images/pink.jpg" width="110" height="65"></a></p>
                         </li>
                     </ul>
@@ -169,7 +169,7 @@
             <div class="voice_content">
                 <ul class="voice_lists">
                     <li class="voice_list">
-                        <img src="images/voice_01.jpg" alt="先輩たちの声">
+                        <img src="images/voice_01.jpg" alt="先輩1" class="voice_list__img">
                     </li>
                     <li class="voice_list">
                         年代：30代<br>
@@ -186,7 +186,7 @@
                 </ul>
                 <ul class="voice_lists">
                     <li class="voice_list">
-                        <img src="images/voice_02.jpg" alt="先輩たちの声">
+                        <img src="images/voice_02.jpg" alt="先輩2" class="voice_list__img">
                     </li>
                     <li class="voice_list">
                         年代：30代<br>
@@ -245,7 +245,7 @@
     <section id="contact">
         <div class="container">
             <h2 class="title-border">お問い合わせ</h2>
-            <div class="contact_content">
+            <div class="contact">
                 <ul class="contact_lists">
                     <li class="contact_list contact_list__lead">
                         <p>お名前</p>
@@ -325,7 +325,7 @@
                     <li class="contact_list contact_list__form contact_list__apper"><textarea name="appeer" class="contact_list__form--textarea"></textarea></li>
                 </ul>
             </div>
-            <button class="confilm"><input type="submit" value="入力内容を確認する"></button>
+            <button class="contact_confilm"><input type="submit" value="入力内容を確認する"></button>
         </div>
     </section>
     <footer>
