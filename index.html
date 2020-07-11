@@ -16,32 +16,28 @@
     <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-    <!-- <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
     <script type="text/javascript" src="js/parallax.min.js"></script>
-    <!-- <link rel="stylesheet" href="css/bootstrap_min.css"> -->
     <link rel="stylesheet" href="css/sanitize.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- <script src="js/common.js"></script> -->
-    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
 </head>
 
 <body>
-
     <div id="slide">
         <ul>
-            <li><a href=""><img src="images/hero.jpg" alt="" height="550" /></a></li>
-<!--             <li><a href=""><img src="images/back.jpg" alt="" width="1300" height="550" /></a></li> -->
+            <li><a href=""><img src="images/hero.jpg" alt=""></a></li>
         </ul>
-            <div class="nav_container hero_title">
-            <p class="hero_title__text1">Mamasan & Companyが<br></p>
-                <p class="hero_title__text2">クリエイティブ業界に進出します！</p>
-    </div>
+        <div class="nav_container">
+            <div class="hero_title">
+                <span class="hero_title__text1">Mamasan & Companyが</span><br>
+                    <span class="hero_title__text2">クリエイティブ業界に進出します！</span>
+            </div>
+        </div>
     </div>
     <header id="top">
-        <!-- <div class="container"> -->
-        <div class="headline">子育てしながら在宅ワークでスキルを活かし続けれれる！</div>
+        <div class="headline"><div class="nav_container"><p>子育てしながら在宅ワークでスキルを活かし続けれれる！</p></div></div>
         <div class="nav_container">
             <h1><a href="index.html"><img src="images/logo.png" alt="Mamasan & Company"></a></h1>
             <nav class="nav_bar">
@@ -54,7 +50,6 @@
                 </ul>
             </nav>
         </div>
-        <!-- </div> -->
     </header>
     <section id="feature">
         <div class="container">
@@ -65,7 +60,7 @@
                 <div class="tab_content">
                     <ul class="tab_content__list">
                         <li>
-                            <p>特徴１テキストテキストテキストテキストテキストテキストテキスト<br>
+                            <p>テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキスト。<br>
                                 <br>
@@ -88,7 +83,7 @@
                 <div class="tab_content">
                     <ul class="tab_content__list">
                         <li>
-                            <p>特徴２テキストテキストテキステキストテキストテキストテキスト<br>
+                            <p>テキストテキストテキステキストテキストテキストテキスト<br>
                                 テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキスト。<br>
                                 <br>
@@ -111,7 +106,7 @@
                 <div class="tab_content">
                     <ul class="tab_content__list">
                         <li>
-                            <p>特徴３テキストテキストテキストテキストテキストテキストテキスト<br>
+                            <p>テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキスト。<br>
                                 <br>
@@ -134,7 +129,7 @@
                 <div class="tab_content">
                     <ul class="tab_content__list">
                         <li>
-                            <p>特徴4テキストテキストテキストテキストテキストテキストテキスト<br>
+                            <p>テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキストテキストテキストテキストテキストテキスト<br>
                                 テキストテキ<br>
                                 <br>
@@ -365,14 +360,16 @@
     </footer>
     </div>
     <script type="text/javascript">
+    // ------------------------------------------------------
     // スライド
+    // ------------------------------------------------------
     $(function() {
         // 設定
-        var $width = 1280; // 横幅
-        var $height = 550; // 高さ
+        // var $width = 100%; // 横幅
+        // var $height = 100%; // 高さ
         var $interval = 3000; // 切り替わりの間隔（ミリ秒）
         var $fade_speed = 1000; // フェード処理の早さ（ミリ秒）
-        $("#slide ul li").css({ "position": "relative", "overflow": "hidden", "width": $width, "height": $height });
+        $("#slide ul li").css({ "position": "relative", "overflow": "hidden" });
         $("#slide ul li").hide().css({ "position": "absolute", "top": 0, "left": 0 });
         $("#slide ul li:first").addClass("active").show();
         setInterval(function() {
@@ -382,8 +379,10 @@
             $next.fadeIn($fade_speed).addClass("active");
         }, $interval);
     });
-
+    // ------------------------------------------------------
     // 画像切替
+    // ------------------------------------------------------
+
     // <!--
     function myChgPic(myPicURL) {
         document.images["myBigImage"].src = myPicURL;
@@ -392,7 +391,10 @@
 
     // $('.parallax-window').parallax({imageSrc: 'images/back.jpg'});
 
+    // ------------------------------------------------------
     //戻るボタン
+    // ------------------------------------------------------
+
     $(function() {
         var pagetop = $('#page_top');
         pagetop.hide();
@@ -419,25 +421,24 @@
             $('#scroll_img').css('background-position', '10px ' + parseInt(-scroll / 50) + 'px'); // 1/50のスピード
         });
     });
-
+    // ------------------------------------------------------
     // ヘッダーを固定する関数
-    $(function() {
-        var nav = $('#top');
+    // ------------------------------------------------------
+    var nav = $('#top');
 
-        // メニューのtop座標を取得する
-        var offsetTop = nav.offset().top;
+    // メニューのtop座標を取得する
+    var offsetTop = nav.offset().top;
 
-        var floatMenu = function() {
-            // スクロール位置がメニューのtop座標を超えたら固定にする
-            if ($(window).scrollTop() > offsetTop) {
-                nav.addClass('fixed');
-            } else {
-                nav.removeClass('fixed');
-            }
+    var floatMenu = function() {
+        // スクロール位置がメニューのtop座標を超えたら固定にする
+        if ($(window).scrollTop() > offsetTop) {
+            nav.addClass('fixed');
+        } else {
+            nav.removeClass('fixed');
         }
-        $(window).scroll(floatMenu);
-        $('body').bind('touchmove', floatMenu);
-    });
+    }
+    $(window).scroll(floatMenu);
+    $('body').bind('touchmove', floatMenu);
     </script>
 </body>
 

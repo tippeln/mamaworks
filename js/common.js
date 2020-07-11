@@ -1,139 +1,79 @@
-        $(function() {
-            var nav = $('.nav');
-            $('li', nav)
-                .mouseover(function(e) {
-                    $('ul', this).stop().slideDown('fast');
-                })
-                .mouseout(function(e) {
-                    $('ul', this).stop().slideUp('fast');
-                });
-        });
+    // ------------------------------------------------------
+    // スライド
+    // ------------------------------------------------------
+    $(function() {
+        // 設定
+        // var $width = 100%; // 横幅
+        // var $height = 100%; // 高さ
+        var $interval = 3000; // 切り替わりの間隔（ミリ秒）
+        var $fade_speed = 1000; // フェード処理の早さ（ミリ秒）
+        $("#slide ul li").css({ "position": "relative", "overflow": "hidden" });
+        $("#slide ul li").hide().css({ "position": "absolute", "top": 0, "left": 0 });
+        $("#slide ul li:first").addClass("active").show();
+        setInterval(function() {
+            var $active = $("#slide ul li.active");
+            var $next = $active.next("li").length ? $active.next("li") : $("#slide ul li:first");
+            $active.fadeOut($fade_speed).removeClass("active");
+            $next.fadeIn($fade_speed).addClass("active");
+        }, $interval);
+    });
+    // ------------------------------------------------------
+    // 画像切替
+    // ------------------------------------------------------
 
-        // hero以降カラー切替
-        $(function() {
-            var _window = $(window),
-                _gnav = $('.gnav'),
-                _logo = $('.gnav-logo'),
-                _bar = $('.bar'),
-                _btn = $('.menu-btn'),
-                _text = $('.menu-btn__text'),
-                heroBottom;
-            _window.on('scroll', function() {
-                heroBottom = $('#mv').height();
-                if (_window.scrollTop() > heroBottom) {
-                    _gnav.addClass('transform');
-                    _logo.addClass('transform');
-                    _bar.addClass('transform');
-                    _btn.addClass('transform');
-                    _text.addClass('transform');
-                } else {
-                    _gnav.removeClass('transform');
-                    _logo.removeClass('transform');
-                    _bar.removeClass('transform');
-                    _btn.removeClass('transform');
-                    _text.removeClass('transform');
-                }
-            });
-            _window.trigger('scroll');
-        });
+    // <!--
+    function myChgPic(myPicURL) {
+        document.images["myBigImage"].src = myPicURL;
+    }
+    // -->
 
+    // $('.parallax-window').parallax({imageSrc: 'images/back.jpg'});
 
-
-        $(window).scroll(function() {
-            $('.fadein-top').each(function() {
-                var elemPos = $(this).offset().top,
-                    scroll = $(window).scrollTop(),
-                    windowHeight = $(window).height();
-                if (scroll > elemPos - windowHeight + 200) {
-                    $(this).addClass('scrollin');
-                }
-            });
-            $('.fadein-bottom').each(function() {
-                var elemPos = $(this).offset().top,
-                    scroll = $(window).scrollTop(),
-                    windowHeight = $(window).height();
-                if (scroll > elemPos - windowHeight + 200) {
-                    $(this).addClass('scrollin');
-                }
-            });
-            $('.fadein-left').each(function() {
-                var elemPos = $(this).offset().top,
-                    scroll = $(window).scrollTop(),
-                    windowHeight = $(window).height();
-                if (scroll > elemPos - windowHeight + 100) {
-                    $(this).addClass('scrollin');
-                }
-            });
-            $('.fadein-right').each(function() {
-                var elemPos = $(this).offset().top,
-                    scroll = $(window).scrollTop(),
-                    windowHeight = $(window).height();
-                if (scroll > elemPos - windowHeight + 100) {
-                    $(this).addClass('scrollin');
-                }
-            });
-        });
-
-
-        function slideSwitch() {
-            var $active = $('#imageSlide IMG.active');
-
-            if ($active.length == 0) $active = $('#imageSlide IMG:last');
-
-            var $next = $active.next().length ? $active.next() :
-                $('#imageSlide IMG:first');
-
-            $active.addClass('last-active');
-
-            $next.css({ opacity: 0.0 })
-                .addClass('active')
-                .animate({ opacity: 1.0 }, 1000, function() {
-                    $active.removeClass('active last-active');
-                });
-        }
-
-        $(function() {
-            setInterval("slideSwitch()", 2000);
-        });
+    // ------------------------------------------------------
+    //戻るボタン
+    // ------------------------------------------------------
 
     $(function() {
-        $.each($('.bxslider').bxSlider({
-            ticker: true,
-            slideWidth: 300,
-            slideMargin: 3,
-            speed: 35000,
-            captions: true,
-            minSlides: 1,
-            maxSlides: 4,
-            infiniteLoop: true,
-            useCSS: false,
-            moveSlides: 1
-        }));
-    });
-
-        $(function() {
-
-        $('#masonry').masonry({
-            itemSelector: '.grid',
-            // isFitWidth: true,
-            isAnimated: true
+        var pagetop = $('#page_top');
+        pagetop.hide();
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) { //100pxスクロールしたら表示
+                pagetop.fadeIn();
+            } else {
+                pagetop.fadeOut();
+            }
+        });
+        pagetop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 500); //0.5秒かけてトップへ移動
+            return false;
         });
     });
 
-jQuery(function() {
-    var pagetop = $('#page_top');
-    pagetop.hide();
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {  //100pxスクロールしたら表示
-            pagetop.fadeIn();
+
+
+    $(function() {
+        $(window).scroll(function() {
+            var scroll = $(this).scrollTop(); // スクロール値を取得
+            $('#scroll_img').css('background-position', '10px ' + parseInt(-scroll / 50) + 'px'); // 1/50のスピード
+        });
+    });
+    // ------------------------------------------------------
+    // ヘッダーを固定する関数
+    // ------------------------------------------------------
+    var nav = $('#top');
+
+    // メニューのtop座標を取得する
+    var offsetTop = nav.offset().top;
+
+    var floatMenu = function() {
+        // スクロール位置がメニューのtop座標を超えたら固定にする
+        if ($(window).scrollTop() > offsetTop) {
+            nav.addClass('fixed');
         } else {
-            pagetop.fadeOut();
+            nav.removeClass('fixed');
         }
-    });
-    pagetop.click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500); //0.5秒かけてトップへ移動
-        return false;
-    });
-});
+    }
+    $(window).scroll(floatMenu);
+    $('body').bind('touchmove', floatMenu);
