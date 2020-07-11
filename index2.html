@@ -20,7 +20,6 @@
     <!-- <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script> -->
     <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
     <script type="text/javascript" src="js/parallax.min.js"></script>
-    <!-- <link rel="stylesheet" href="css/bootstrap_min.css"> -->
     <link rel="stylesheet" href="css/sanitize.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- <script src="js/common.js"></script> -->
@@ -28,18 +27,13 @@
 </head>
 
 <body>
-
-    <div id="slide">
-        <ul>
-            <li><a href=""><img src="images/hero.jpg" alt="" height="550" /></a></li>
-<!--             <li><a href=""><img src="images/back.jpg" alt="" width="1300" height="550" /></a></li> -->
-        </ul>
-            <div class="nav_container hero_title">
-            <p class="hero_title__text1">Mamasan & Companyが<br></p>
-                <p class="hero_title__text2">クリエイティブ業界に進出します！</p>
-    </div>
+        <section data-parallax="scroll" data-image-src="images/animals_photo6.jpg"></section>
+    <div id="hero">
+        <div><img src="images/about_photo1.jpg" alt=""></div>
     </div>
     <header id="top">
+        <!--         <p>Mamasan & Companyが<br>
+            クリエイティブ業界に進出します！</p> -->
         <!-- <div class="container"> -->
         <div class="headline">子育てしながら在宅ワークでスキルを活かし続けれれる！</div>
         <div class="nav_container">
@@ -191,7 +185,7 @@
             </ul>
         </div>
     </section>
-    <div id="back" data-parallax="scroll" data-image-src="images/back.jpg"></div>
+    <section data-parallax="scroll" data-image-src="images/back.jpg"></section>
     <section id="voice">
         <div class="container">
             <h2 class="title-border">先輩たちの声</h2>
@@ -365,26 +359,7 @@
     </footer>
     </div>
     <script type="text/javascript">
-    // スライド
-    $(function() {
-        // 設定
-        var $width = 1280; // 横幅
-        var $height = 550; // 高さ
-        var $interval = 3000; // 切り替わりの間隔（ミリ秒）
-        var $fade_speed = 1000; // フェード処理の早さ（ミリ秒）
-        $("#slide ul li").css({ "position": "relative", "overflow": "hidden", "width": $width, "height": $height });
-        $("#slide ul li").hide().css({ "position": "absolute", "top": 0, "left": 0 });
-        $("#slide ul li:first").addClass("active").show();
-        setInterval(function() {
-            var $active = $("#slide ul li.active");
-            var $next = $active.next("li").length ? $active.next("li") : $("#slide ul li:first");
-            $active.fadeOut($fade_speed).removeClass("active");
-            $next.fadeIn($fade_speed).addClass("active");
-        }, $interval);
-    });
-
-    // 画像切替
-    // <!--
+    <!--
     function myChgPic(myPicURL) {
         document.images["myBigImage"].src = myPicURL;
     }
@@ -421,23 +396,21 @@
     });
 
     // ヘッダーを固定する関数
-    $(function() {
-        var nav = $('#top');
+    function scroll() {
+        // スクロール量がcontainerYを上回ったら、関数_fixedを実行
+        // スクロール量がcontainerYを上回ったら、関数_staticを実行
+        (containerY <= $window.scrollTop()) ? _fixed(): _static();
 
-        // メニューのtop座標を取得する
-        var offsetTop = nav.offset().top;
+        function _fixed() {
+            $header.css({ 'position': 'fixed', 'top': 0, 'left': 0 });
+            $headerAfter.css('marginTop', headerY);
+        };
 
-        var floatMenu = function() {
-            // スクロール位置がメニューのtop座標を超えたら固定にする
-            if ($(window).scrollTop() > offsetTop) {
-                nav.addClass('fixed');
-            } else {
-                nav.removeClass('fixed');
-            }
-        }
-        $(window).scroll(floatMenu);
-        $('body').bind('touchmove', floatMenu);
-    });
+        function _static() {
+            $header.css({ 'position': 'static', 'top': '', 'left': '' });
+            $headerAfter.css('marginTop', '');
+        };
+    };
     </script>
 </body>
 

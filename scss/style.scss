@@ -17,47 +17,41 @@ body {
     font-family: "游ゴシック", "Yu Gothic";
 }
 
-/*header,
-nav,
-#path,
-#contents,
-footer*/
 .container {
     width: 1000px;
     margin: 0 auto;
 }
 
+// header h1 {
+//     margin: 0 0 26px 0;
+//     padding-top: 18px;
+//     text-align: center;
+// }
 
-
-header h1 {
-    margin: 0 0 26px 0;
-    padding-top: 18px;
-    text-align: center;
-}
-
+// タイトル横にライン装飾
 .title-border {
-    width: 50%;
+    width: 50%; //ラインを引く幅を指定
     display: flex;
     align-items: center;
     padding: 50px 0 35px 0;
     margin: 0 auto;
     font-size: 2em;
     //     text-align: center;
-}
 
-.title-border:before,
-.title-border:after {
-    border-top: 1px solid;
-    content: "";
-    flex-grow: 1;
-}
+    &:before,
+    &:after {
+        border-top: 1px solid; //ラインの太さ
+        content: "";
+        flex-grow: 1;
+    }
 
-.title-border:before {
-    margin-right: 1rem;
-}
+    &:before {
+        margin-right: 1rem;
+    }
 
-.title-border:after {
-    margin-left: 1rem;
+    &:after {
+        margin-left: 1rem;
+    }
 }
 
 // h2 {
@@ -71,55 +65,120 @@ section {
 }
 
 /*header*/
+// #hero {
+//     width: 100%;
+//     height: 550px;
+//     position: relative;
+//     background-color: #ffdeab;
+// }
+.hero_title {
+        // width: 1100px;
+    // margin: 0 auto;
+    position: absolute;
+    bottom: 100px;
+    z-index: 99;
 
+}
+
+#slide {
+width:100%;
+height:550px;
+margin:0 auto;
+position:relative;
+}
+
+#slide img {
+position:absolute;
+left:0;
+top:0;
+}
+
+
+#top {
+    width: 100%;
+    height: 85px;
+    background-color: #fff;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    z-index: 100;
+    border-bottom: 1px solid #999;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
 
 .headline {
     width: 100%;
     background-color: #009da0;
+    font-size: 0.6rem;
     color: #fff;
-    height: 20px;
+    height: 15px;
 }
 
-#top {
+
+
+.nav_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 1100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
+    margin: 0 auto;
+    padding: 10px 0;
 }
 
-#concept {
-    background: #e0e0e0;
 
+.nav_bar {
+    &__lists {
+        display: flex;
+        position: relative;
+        // margin: 0;
+        // padding: 0;
+        list-style-type: none;
+    }
+
+    &__list+&__list::before {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 50%;
+        height: 14px;
+        margin-top: -7px;
+        border-right: 1px solid #999;
+    }
+
+    // &__lists  li +     &__lists  li {
+    //     border-left: 0;
+    //     border-right: 1px solid #999
+    // }
+
+    &__link {
+        display: block;
+        padding: 0px 20px;
+        // width: calc(10%);
+        // width: 180px;
+
+        color: inherit;
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+
+    &__list+&__list {
+        // border-left: 0;
+        // border-right: 1px solid #999
+    }
 }
 
-#outline {
-    background: #e0e0e0;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0 0 20px 0;
-    padding-left: 0;
-    overflow: hidden;
-}
-
-nav ul li {
-    width: 215px;
-    float: left;
-    font-size: 1.5em;
-}
-
-nav ul li a {
-    display: block;
-    height: 0;
-    padding-top: 60px;
-    color: #666;
-    /*overflow: hidden;*/
-}
 
 
 /*Mamasan & Companyの特徴*/
+
+#feature {
+    margin-top: 140px;
+}
 
 .tab {
     width: 1000px;
@@ -135,15 +194,21 @@ nav ul li a {
         height: 50px;
         /*background-color: darkgrey;*/
         line-height: 50px;
-        font-size: 1.2em;
+        font-size: 1.5rem;
         color: #fff;
         font-weight: bold;
         text-align: center;
         display: block;
         float: left;
         order: -1;
-        border: 1px solid #ff9000;
+        border-bottom: 1px solid #ff9000;
+        border-right: 1px solid #ff9000;
+
+        &+&_class {
+            border-right: 0;
+        }
     }
+
 
     &_content {
         display: none;
@@ -161,19 +226,19 @@ nav ul li a {
     }
 
     &_col1 {
-        background-color: orange;
+        background-color: #ffb067;
     }
 
     &_col2 {
-        background-color: green;
+        background-color: #3ebc01;
     }
 
     &_col3 {
-        background-color: blue;
+        background-color: #1e1efc;
     }
 
     &_col4 {
-        background-color: pink;
+        background-color: #fc1e77;
     }
 }
 
@@ -181,18 +246,39 @@ input[name="tab_name"] {
     display: none;
 }
 
-input:checked+.tab_class {
+input:checked+.tab_col1 {
     background-color: #fff;
-    color: aliceblue;
+    color: #ffb067;
 }
+
+input:checked+.tab_col2 {
+    background-color: #fff;
+    color: #3ebc01;
+}
+
+input:checked+.tab_col3 {
+    background-color: #fff;
+    color: #1e1efc;
+}
+
+input:checked+.tab_col4 {
+    background-color: #fff;
+    color: #fc1e77;
+}
+
 
 input:checked+.tab_class+.tab_content {
     display: block;
 }
 
 
-
 /*コンセプト*/
+
+#concept {
+    background: #e0e0e0;
+    z-index: 999;
+}
+
 .concept_lists {
     display: flex;
     justify-content: space-between;
@@ -205,16 +291,17 @@ input:checked+.tab_class+.tab_content {
 }
 
 /*画像セクション*/
-.back {
+#back{
     width: 100%;
+    height: 400px;
 }
+
 
 /*先輩の声*/
 .voice_content {
     display: flex;
     justify-content: space-between;
     width: 100%;
-
 }
 
 .voice_lists {
@@ -265,6 +352,11 @@ input:checked+.tab_class+.tab_content {
 
 
 /*会社概要*/
+
+#outline {
+    background: #e0e0e0;
+}
+
 .outline_list {
     list-style-type: none;
     display: flex;
@@ -412,10 +504,49 @@ td:last-child {
 .footerline {
     display: flex;
     align-items: center;
-
+    // justify-content: flex-end;
+    text-align: right;
+    font-size: 0.75rem;
     width: 100%;
     background-color: #009da0;
     color: #fff;
     height: 45px;
     margin-bottom: 195px;
+}
+
+//backボタン
+#page_top {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    background: #009da0;
+    // opacity: 0.6;
+    // border-radius: 50%;
+
+    & a {
+        position: relative;
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-decoration: none;
+    }
+
+    & a::before {
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        content: '\f0d8';
+        font-size: 50px;
+        color: #fff;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        // top: -5px;
+        bottom: 10px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        text-align: center;
+    }
 }
